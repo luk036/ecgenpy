@@ -1,14 +1,25 @@
-def gray_code_gen(n):
-    if n == 0:
+def BRGC_gen(n):
+    """Binary Reflected Gray Code"""
+    if n == 1:
+        yield 0
         return
-    yield from gray_code_gen(n - 1)
+    yield from BRGC_gen(n - 1)
     yield n - 1
-    yield from gray_code_gen(n - 1)
+    yield from BRGC_gen(n - 1)
+
+
+def BRGC(n):
+    """Binary Reflected Gray Code"""
+    lst = list(0 for _ in range(n))
+    yield lst
+    for i in BRGC_gen(len(lst)):
+        lst[i] = 1 - lst[i]  # flip
+        yield lst
 
 
 if __name__ == "__main__":
-    lst = list("◾◾◾◾")
-    print("".join(lst[::-1]))
-    for i in gray_code_gen(4):
-        lst[i] = "◽" if lst[i] == "◾" else "◾"  # flip
-        print("{}: {}".format("".join(lst[::-1]), i))
+    s = "◾◽"
+    print(" 0 1 2 3")
+    for lst in BRGC(4):
+        mylst = list(s[i] for i in lst)
+        print("".join(mylst))
