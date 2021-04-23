@@ -15,6 +15,7 @@ def SJT_gen(n):
         yield next(gen)  # tricky part
 
 
+# @todo: rewrite for list(range(n)) only
 def SJT(perm):
     n = len(perm)
     for x in SJT_gen(n):
