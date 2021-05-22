@@ -15,9 +15,8 @@ def SJT_gen(n):
         yield next(gen)  # tricky part
 
 
-# @todo: rewrite for list(range(n)) only
-def SJT(perm):
-    n = len(perm)
+def SJT(n):
+    perm = list(range(n))
     for x in SJT_gen(n):
         yield perm
         perm[x], perm[x + 1] = perm[x + 1], perm[x]
@@ -26,6 +25,6 @@ def SJT(perm):
 if __name__ == "__main__":
     fruits = list("🍉🍌🍇🍏")
     print(" 0 1 2 3")
-    # print("".join(perm))
-    for perm in SJT(fruits):
-        print("".join(perm))
+    for lst in SJT(4):
+        mylst = list(fruits[i] for i in lst)
+        print("".join(mylst))

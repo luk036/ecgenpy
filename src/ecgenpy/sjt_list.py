@@ -17,6 +17,6 @@ def SJT2(n):
 if __name__ == "__main__":
     fruits = list("🍉🍌🍇🍏")
     print(" 0 1 2 3")
-    # print("".join(perm))
-    for perm in SJT2(fruits):
-        print("".join(perm))
+    for lst in SJT2(4):
+        mylst = list(fruits[i] for i in lst)
+        print("".join(mylst))
