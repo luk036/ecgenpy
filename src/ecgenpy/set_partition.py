@@ -1,35 +1,36 @@
-# Set Partition
-#
-# A set partition of the set [n] = {1,2,3,...,n} is a collection B0,
-# B1, ... Bj of disjoint subsets of [n] whose union is [n]. Each Bj
-# is called a block. Below we show the partitions of [4]. The periods
-# separtate the individual sets so that, for example, 1.23.4 is the
-# partition {{1},{2,3},{4}}.
-#   1 block:  1234
-#   2 blocks: 123.4   124.3   134.2   1.234   12.34   13.24   14.23
-#   3 blocks: 1.2.34  1.24.3  14.2.3  13.2.4  12.3.4
-#   4 blocks: 1.2.3.4
-#
-# Each partition above has its blocks listed in increasing order of
-# smallest element; thus block 0 contains element 1, block1 contains
-# the smallest element not in block 0, and so on. A Restricted Growth
-# string (or RG string) is a sring a[1..n] where a[i] is the block in
-# whcih element i occurs. Restricted Growth strings are often called
-# restricted growth functions. Here are the RG strings corresponding
-# to the partitions shown above.
-#
-#   1 block:  0000
-#   2 blocks: 0001, 0010, 0100, 0111, 0011, 0101, 0110
-#   3 blocks: 0122, 0121, 0112, 0120, 0102,
-#
-# ...more
-#
-# Reference:
-# Frank Ruskey. Simple combinatorial Gray codes constructed by
-# reversing sublists. Lecture Notes in Computer Science, #762,
-# 201-208. Also downloadable from
-# http://webhome.cs.uvic.ca/~ruskey/Publications/SimpleGray/SimpleGray.html
+"""
+ Set Partition
 
+ A set partition of the set [n] = {1,2,3,...,n} is a collection B0,
+ B1, ... Bj of disjoint subsets of [n] whose union is [n]. Each Bj
+ is called a block. Below we show the partitions of [4]. The periods
+ separtate the individual sets so that, for example, 1.23.4 is the
+ partition {{1},{2,3},{4}}.
+   1 block:  1234
+   2 blocks: 123.4   124.3   134.2   1.234   12.34   13.24   14.23
+   3 blocks: 1.2.34  1.24.3  14.2.3  13.2.4  12.3.4
+   4 blocks: 1.2.3.4
+
+ Each partition above has its blocks listed in increasing order of
+ smallest element; thus block 0 contains element 1, block1 contains
+ the smallest element not in block 0, and so on. A Restricted Growth
+ string (or RG string) is a sring a[1..n] where a[i] is the block in
+ whcih element i occurs. Restricted Growth strings are often called
+ restricted growth functions. Here are the RG strings corresponding
+ to the partitions shown above.
+
+   1 block:  0000
+   2 blocks: 0001, 0010, 0100, 0111, 0011, 0101, 0110
+   3 blocks: 0122, 0121, 0112, 0120, 0102,
+
+ ...more
+
+ Reference:
+ Frank Ruskey. Simple combinatorial Gray codes constructed by
+ reversing sublists. Lecture Notes in Computer Science, #762,
+ 201-208. Also downloadable from
+ http://webhome.cs.uvic.ca/~ruskey/Publications/SimpleGray/SimpleGray.html
+"""
 from functools import wraps
 
 
@@ -46,16 +47,31 @@ def cache(func):
 
 
 @cache
-def stirling2nd(n, k):
-    """
-    Stirling number of second kind.
+def stirling2nd(n: int, k: int) -> int:
+    """Stirling number of second kind.
+
+    Args:
+        n (int): [description]
+        k (int): [description]
+
+    Returns:
+        int: [description]
     """
     if k >= n or k <= 1:
         return 1
     return stirling2nd(n - 1, k - 1) + k * stirling2nd(n - 1, k)
 
 
-def set_partition(n, k):
+def set_partition(n: int, k: int):
+    """[summary]
+
+    Args:
+        n (int): [description]
+        k (int): [description]
+
+    Yields:
+        [type]: [description]
+    """
     if k % 2 == 0:
         yield from GEN0_even(n, k)
     else:
@@ -71,7 +87,15 @@ def set_partition(n, k):
 
 
 def GEN0_even(n, k):
-    """ S(n,k,0) even k """
+    """S(n,k,0) even k
+
+    Args:
+        n (int): [description]
+        k (int): [description]
+
+    Yields:
+        [type]: [description]
+    """
     if k > 0 and k < n:
         yield from GEN0_odd(n - 1, k - 1)
         yield (n - 1, k - 1)
@@ -86,7 +110,15 @@ def GEN0_even(n, k):
 
 
 def NEG0_even(n, k):
-    """ S'(n,k,0) even k """
+    """S'(n,k,0) even k
+
+    Args:
+        n (int): [description]
+        k (int): [description]
+
+    Yields:
+        [type]: [description]
+    """
     if k > 0 and k < n:
         for i in range(1, k - 2, 2):
             yield from GEN1_even(n - 1, k)
@@ -101,7 +133,15 @@ def NEG0_even(n, k):
 
 
 def GEN1_even(n, k):
-    """ S(n,k,1) even k """
+    """S(n,k,1) even k
+
+    Args:
+        n (int): [description]
+        k (int): [description]
+
+    Yields:
+        [type]: [description]
+    """
     if k > 0 and k < n:
         yield from GEN1_odd(n - 1, k - 1)
         yield (k, k - 1)
@@ -116,7 +156,15 @@ def GEN1_even(n, k):
 
 
 def NEG1_even(n, k):
-    """ S'(n,k,1) even k """
+    """S'(n,k,1) even k
+
+    Args:
+        n (int): [description]
+        k (int): [description]
+
+    Yields:
+        [type]: [description]
+    """
     if k > 0 and k < n:
         for i in range(1, k - 2, 2):
             yield from NEG1_even(n - 1, k)
@@ -131,7 +179,15 @@ def NEG1_even(n, k):
 
 
 def GEN0_odd(n, k):
-    """ S(n,k,0) odd k """
+    """S(n,k,0) odd k
+
+    Args:
+        n (int): [description]
+        k (int): [description]
+
+    Yields:
+        [type]: [description]
+    """
     if k > 1 and k < n:
         yield from GEN1_even(n - 1, k - 1)
         yield (k, k - 1)
@@ -158,7 +214,15 @@ def GEN0_odd(n, k):
 
 
 def NEG0_odd(n, k):
-    """ S'(n,k,0) odd k """
+    """S'(n,k,0) odd k
+
+    Args:
+        n (int): [description]
+        k (int): [description]
+
+    Yields:
+        [type]: [description]
+    """
     if k > 1 and k < n:
         for i in range(1, k - 1, 2):
             yield from GEN1_odd(n - 1, k)
@@ -171,7 +235,15 @@ def NEG0_odd(n, k):
 
 
 def GEN1_odd(n, k):
-    """ S(n,k,1) odd k """
+    """S(n,k,1) odd k
+
+    Args:
+        n (int): [description]
+        k (int): [description]
+
+    Yields:
+        [type]: [description]
+    """
     if k > 1 and k < n:
         yield from GEN0_even(n - 1, k - 1)
         yield (n - 1, k - 1)
@@ -184,7 +256,15 @@ def GEN1_odd(n, k):
 
 
 def NEG1_odd(n, k):
-    """ S'(n,k,1) odd k """
+    """S'(n,k,1) odd k
+
+    Args:
+        n (int): [description]
+        k (int): [description]
+
+    Yields:
+        [type]: [description]
+    """
     if k > 1 and k < n:
         for i in range(1, k - 1, 2):
             yield from NEG1_odd(n - 1, k)

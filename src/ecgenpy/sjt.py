@@ -1,5 +1,18 @@
-def SJT_gen(n):
-    """Generate the swaps for the Steinhaus-Johnson-Trotter algorithm."""
+""" Steinhaus-Johnson-Trotter algorithm """
+
+
+def SJT_gen(n: int):
+    """Generate the swaps for the Steinhaus-Johnson-Trotter algorithm.
+
+    Args:
+        n (int): [description]
+
+    Returns:
+        [type]: [description]
+
+    Yields:
+        [type]: [description]
+    """
     if n == 2:
         yield 0
         yield 0  # tricky part: return to the origin
@@ -15,7 +28,18 @@ def SJT_gen(n):
         yield next(gen)  # tricky part
 
 
-def SJT(n):
+def SJT(n: int):
+    """Generate the swaps for the Steinhaus-Johnson-Trotter algorithm.
+
+    Args:
+        n (int): [description]
+
+    Returns:
+        [type]: [description]
+
+    Yields:
+        [type]: [description]
+    """
     perm = list(range(n))
     for x in SJT_gen(n):
         yield perm

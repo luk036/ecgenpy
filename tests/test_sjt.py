@@ -17,7 +17,7 @@ def run_sjt_new(n, duration=0.000001):
 def run_sjt_old(n, duration=0.000001):
     alphabets = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
     cnt = 0
-    for perm in SJT2(10):
+    for perm in SJT2(n):
         _ = list(alphabets[i] for i in perm)
         cnt += 1
     return cnt
@@ -29,8 +29,8 @@ def test_sjt_new(benchmark):
     Arguments:
         benchmark ([type]): [description]
     """
-    cnt = benchmark(run_sjt_new, 10)
-    assert cnt == 3628800
+    cnt = benchmark(run_sjt_new, 8)
+    assert cnt == 40320
 
 
 def test_sjt_old(benchmark):
@@ -39,5 +39,5 @@ def test_sjt_old(benchmark):
     Arguments:
         benchmark ([type]): [description]
     """
-    cnt = benchmark(run_sjt_old, 10)
-    assert cnt == 3628800
+    cnt = benchmark(run_sjt_old, 8)
+    assert cnt == 40320

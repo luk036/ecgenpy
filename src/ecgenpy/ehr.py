@@ -1,5 +1,12 @@
-def Ehr_gen(n):
-    """Generate the swaps for the Ehr algorithm."""
+def Ehr_gen(n: int):
+    """[summary]
+
+    Args:
+        n (int): [description]
+
+    Yields:
+        [type]: [description]
+    """
     b = list(range(n))  # b[0] is never used
     c = [0] * (n + 1)  # c[0] is never used
     while True:
@@ -17,7 +24,15 @@ def Ehr_gen(n):
         b[1:k] = b[k - 1 : 0 : -1]
 
 
-def Ehr(perm):
+def Ehr(perm: list):
+    """[summary]
+
+    Args:
+        perm (list): [description]
+
+    Yields:
+        list: [description]
+    """
     n = len(perm)
     for k in Ehr_gen(n):
         yield perm

@@ -1,5 +1,12 @@
-def BRGC_gen(n):
-    """Binary Reflected Gray Code"""
+def BRGC_gen(n: int):
+    """Binary Reflected Gray Code
+
+    Args:
+        n (int): [description]
+
+    Yields:
+        [type]: [description]
+    """
     if n == 1:
         yield 0
         return
@@ -8,8 +15,15 @@ def BRGC_gen(n):
     yield from BRGC_gen(n - 1)
 
 
-def BRGC(n):
-    """Binary Reflected Gray Code"""
+def BRGC(n: int):
+    """Binary Reflected Gray Code
+
+    Args:
+        n (int): [description]
+
+    Yields:
+        [type]: [description]
+    """
     lst = list(0 for _ in range(n))
     yield lst
     for i in BRGC_gen(len(lst)):

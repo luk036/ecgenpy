@@ -1,4 +1,16 @@
-def EMK_gen(n, k):
+""" Combinations """
+
+
+def EMK_gen(n: int, k: int):
+    """[summary]
+
+    Args:
+        n (int): [description]
+        k (int): [description]
+
+    Yields:
+        Iterator[(int, int)]: [description]
+    """
     if n <= k or k == 0:
         return
     if k == 1:
@@ -12,7 +24,16 @@ def EMK_gen(n, k):
         yield from EMK_gen(n - 2, k - 2)
 
 
-def EMK_neg(n, k):
+def EMK_neg(n: int, k: int):
+    """[summary]
+
+    Args:
+        n (int): [description]
+        k (int): [description]
+
+    Yields:
+        [type]: [description]
+    """
     if n <= k or k == 0:
         return
     if k == 1:
@@ -26,7 +47,18 @@ def EMK_neg(n, k):
         yield from EMK_neg(n - 1, k)
 
 
-def EMK(n, k, Zero=0, One=1):
+def EMK(n: int, k: int, Zero=0, One=1):
+    """[summary]
+
+    Args:
+        n ([type]): [description]
+        k ([type]): [description]
+        Zero (int, optional): [description]. Defaults to 0.
+        One (int, optional): [description]. Defaults to 1.
+
+    Yields:
+        [type]: [description]
+    """
     s = [One] * k + [Zero] * (n - k)
     yield s
     for x, y in EMK_gen(n, k):

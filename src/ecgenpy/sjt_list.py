@@ -1,5 +1,12 @@
-def SJT2(n):
-    """Generate the swaps for the Steinhaus-Johnson-Trotter algorithm."""
+def SJT2(n: int):
+    """Generate the swaps for the Steinhaus-Johnson-Trotter algorithm.
+
+    Args:
+        n (int): [description]
+
+    Yields:
+        [type]: [description]
+    """
     if n == 2:
         yield [0, 1]
         yield [1, 0]  # tricky part: return to the origin
