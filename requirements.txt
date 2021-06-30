@@ -1,4 +1,4 @@
-pytest-benchmark
+coverage
 # =============================================================================
 # DEPRECATION WARNING:
 #
@@ -16,4 +16,5 @@ pytest-benchmark
 # numpy==1.13.3
 # scipy==1.0
 #
+pytest-benchmark
 pytest-cov
