@@ -30,4 +30,5 @@ jobs:
         shell: bash -l {0}
         run: |
             conda install pytest
+            python setup.py develop
             pytest
