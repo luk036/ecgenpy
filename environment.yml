@@ -1,0 +1,6 @@
+name: ecgencpp
+channels:
+  - conda-forge
+dependencies:
+  - pytest
+  - pytest-benchmark
