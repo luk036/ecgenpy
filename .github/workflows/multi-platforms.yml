@@ -1,20 +1,21 @@
-name: Use Miniconda
+name: Multi-Platforms
 on: [push]
 
 jobs:
   miniconda:
-    name: Miniconda ${{ matrix.os }}
+    name: Miniconda ${{ matrix.os }} for Python ${{ matrix.version }}
     runs-on: ${{ matrix.os }}
     strategy:
         matrix:
-            os: ["ubuntu-latest", "windows-latest"]
+            os: ["ubuntu-latest", "windows-latest", "macos-latest"]
+            version: [3.7, 3.8]
     steps:
       - uses: actions/checkout@v2
       - uses: conda-incubator/setup-miniconda@v2
         with:
           activate-environment: test
           environment-file: environment.yml
-          python-version: 3.8
+          python-version: ${{ matrix.version }}
           auto-activate-base: false
       - shell: bash -l {0}
         run: |
