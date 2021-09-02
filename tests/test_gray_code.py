@@ -1,6 +1,4 @@
-from math import comb
-
-from ecgenpy.combin import EMK_gen
+from ecgenpy.combin import EMK_gen, comb
 from ecgenpy.gray_code import BRGC_gen
 
 

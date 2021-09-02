@@ -1,4 +1,33 @@
 """ Combinations """
+from functools import wraps
+
+
+def cache(func):
+    caches = {}
+
+    @wraps(func)
+    def wrap(*args):
+        if args not in caches:
+            caches[args] = func(*args)
+        return caches[args]
+
+    return wrap
+
+
+@cache
+def comb(n: int, k: int) -> int:
+    """Number of combination
+
+    Args:
+        n (int): [description]
+        k (int): [description]
+
+    Returns:
+        int: [description]
+    """
+    if k >= n or k == 0:
+        return 1
+    return comb(n - 1, k - 1) + comb(n - 1, k)
 
 
 def EMK_gen(n: int, k: int):
