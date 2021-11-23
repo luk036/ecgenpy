@@ -95,7 +95,11 @@ def EMK(n: int, k: int, Zero=0, One=1):
         yield s
 
 
-if __name__ == "__main__":
+def main():
     print(" 0 1 2 3 4 5")
     for s in EMK(6, 3, Zero="◾", One="◽"):
         print("".join(s))
+
+
+if __name__ == "__main__":
+    main()

@@ -132,7 +132,7 @@ def NEG1(n):
     yield (2, 0)
 
 
-if __name__ == "__main__":
+def main():
     n = 5
     b = [0 for i in range(n - 1)] + list(range(2))
     cnt = 1
@@ -144,3 +144,7 @@ if __name__ == "__main__":
         print(b[1:], ": Move {} from block {} to {}".format(x, old, y))
     assert stirling2nd2(n) == cnt
     print("Done.")
+
+
+if __name__ == "__main__":
+    main()

@@ -31,9 +31,13 @@ def BRGC(n: int):
         yield lst
 
 
-if __name__ == "__main__":
+def main():
     s = "◾◽"
     print(" 0 1 2 3")
     for lst in BRGC(4):
         mylst = list(s[i] for i in lst)
         print("".join(mylst))
+
+
+if __name__ == "__main__":
+    main()
