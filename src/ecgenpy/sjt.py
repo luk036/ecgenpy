@@ -46,9 +46,13 @@ def SJT(n: int):
         perm[x], perm[x + 1] = perm[x + 1], perm[x]
 
 
-if __name__ == "__main__":
+def main():
     fruits = list("🍉🍌🍇🍏")
     print(" 0 1 2 3")
     for lst in SJT(4):
         mylst = list(fruits[i] for i in lst)
         print("".join(mylst))
+
+
+if __name__ == "__main__":
+    main()

@@ -31,19 +31,7 @@
  201-208. Also downloadable from
  http://webhome.cs.uvic.ca/~ruskey/Publications/SimpleGray/SimpleGray.html
 """
-from functools import wraps
-
-
-def cache(func):
-    caches = {}
-
-    @wraps(func)
-    def wrap(*args):
-        if args not in caches:
-            caches[args] = func(*args)
-        return caches[args]
-
-    return wrap
+from functools import cache
 
 
 @cache
@@ -276,7 +264,7 @@ def NEG1_odd(n, k):
         yield from NEG0_even(n - 1, k - 1)
 
 
-if __name__ == "__main__":
+def main():
     n, k = 5, 3
     b = [0 for i in range(n - k + 1)] + list(range(k))
     cnt = 1
@@ -288,3 +276,7 @@ if __name__ == "__main__":
         print(b[1:], ": Move {} from block {} to {}".format(x, old, y))
     assert stirling2nd(n, k) == cnt
     print("Done.")
+
+
+if __name__ == "__main__":
+    main()

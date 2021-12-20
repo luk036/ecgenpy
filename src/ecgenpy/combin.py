@@ -1,17 +1,5 @@
 """ Combinations """
-from functools import wraps
-
-
-def cache(func):
-    caches = {}
-
-    @wraps(func)
-    def wrap(*args):
-        if args not in caches:
-            caches[args] = func(*args)
-        return caches[args]
-
-    return wrap
+from functools import cache
 
 
 @cache
@@ -95,7 +83,14 @@ def EMK(n: int, k: int, Zero=0, One=1):
         yield s
 
 
-if __name__ == "__main__":
+def main():
     print(" 0 1 2 3 4 5")
+    cnt = 0
     for s in EMK(6, 3, Zero="◾", One="◽"):
         print("".join(s))
+        cnt += 1
+    assert comb(6, 3) == cnt
+
+
+if __name__ == "__main__":
+    main()

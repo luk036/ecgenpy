@@ -21,9 +21,13 @@ def SJT2(n: int):
             yield pi[:i] + [n - 1] + pi[i:]
 
 
-if __name__ == "__main__":
+def main():
     fruits = list("🍉🍌🍇🍏")
     print(" 0 1 2 3")
     for lst in SJT2(4):
         mylst = list(fruits[i] for i in lst)
         print("".join(mylst))
+
+
+if __name__ == "__main__":
+    main()

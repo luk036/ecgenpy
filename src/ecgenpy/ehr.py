@@ -40,9 +40,13 @@ def Ehr(perm: list):
     yield perm
 
 
-if __name__ == "__main__":
+def main():
     fruits = list("🍉🍌🍇🍏🍍")
     print(" 0 1 2 3 4")
     # print("".join(perm))
     for perm in Ehr(fruits):
         print("".join(perm))
+
+
+if __name__ == "__main__":
+    main()
