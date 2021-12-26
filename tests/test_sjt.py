@@ -5,7 +5,7 @@ from ecgenpy.sjt import SJT_gen
 from ecgenpy.sjt_list import SJT2
 
 
-def run_sjt_new(n, duration=0.000001):
+def run_sjt_new(n):
     alphabets = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
     cnt = 0
     for x in SJT_gen(n):
@@ -14,7 +14,7 @@ def run_sjt_new(n, duration=0.000001):
     return cnt
 
 
-def run_sjt_old(n, duration=0.000001):
+def run_sjt_old(n):
     alphabets = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
     cnt = 0
     for perm in SJT2(n):
