@@ -1,23 +1,44 @@
-from ecgenpy.combin import EMK_gen, comb
-from ecgenpy.gray_code import BRGC_gen
+from ecgenpy.combin import EMK, EMK_gen, comb
+from ecgenpy.gray_code import BRGC, BRGC_gen
 
 
-def test_Gray_code_odd():
+def test_BRGC_gen_odd():
     cnt = 1
     for _ in BRGC_gen(5):
         cnt += 1
     assert cnt == 2 ** 5
 
 
-def test_Gray_code_even():
+def test_BRGC_gen_even():
     cnt = 1
     for _ in BRGC_gen(6):
         cnt += 1
     assert cnt == 2 ** 6
 
 
-def test_combinations():
+def test_BRGC_odd():
+    cnt = 0
+    for _ in BRGC(5):
+        cnt += 1
+    assert cnt == 2 ** 5
+
+
+def test_BRGC_even():
+    cnt = 0
+    for _ in BRGC(6):
+        cnt += 1
+    assert cnt == 2 ** 6
+
+
+def test_EMK_gen():
     cnt = 1
     for _ in EMK_gen(5, 3):
+        cnt += 1
+    assert cnt == comb(5, 3)
+
+
+def test_EMK():
+    cnt = 0
+    for _ in EMK(5, 3):
         cnt += 1
     assert cnt == comb(5, 3)

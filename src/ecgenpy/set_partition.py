@@ -265,15 +265,15 @@ def NEG1_odd(n, k):
 
 
 def main():
-    n, k = 5, 3
-    b = [0 for i in range(n - k + 1)] + list(range(k))
+    n, k = 5, 2
+    b = [0] * (n - k + 1) + list(range(k))
     cnt = 1
     print(b[1:])
     for x, y in set_partition(n, k):
         old = b[x]
         b[x] = y
         cnt += 1
-        print(b[1:], ": Move {} from block {} to {}".format(x, old, y))
+        print(b[1:], ": Move {} from block {} to block {}".format(x, old, y))
     assert stirling2nd(n, k) == cnt
     print("Done.")
 
