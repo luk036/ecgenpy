@@ -80,9 +80,9 @@ def GEN0(n: int):
     """
     if n < 3:
         return
-    yield (n - 1, 1)
+    yield n - 1
     yield from GEN1(n - 1)
-    yield (n, 0)
+    yield n
     yield from NEG1(n - 1)
 
 
@@ -97,9 +97,9 @@ def GEN1(n: int):
     """
     if n < 3:
         return
-    yield (2, 1)
+    yield 2
     yield from NEG1(n - 1)
-    yield (n, 0)
+    yield n
     yield from GEN1(n - 1)
 
 
@@ -115,21 +115,21 @@ def NEG1(n):
     if n < 3:
         return
     yield from NEG1(n - 1)
-    yield (n, 1)
+    yield n
     yield from GEN1(n - 1)
-    yield (2, 0)
+    yield 2
 
 
 def main():
     n = 5
-    b = [0 for i in range(n - 1)] + list(range(2))
+    b = [0] * n + [1]
     cnt = 1
     print(b[1:])
-    for x, y in set_bipart(n):
+    for x in set_bipart(n):
         old = b[x]
-        b[x] = y
+        b[x] = 1 - b[x]
         cnt += 1
-        print(b[1:], ": Move {} from block {} to {}".format(x, old, y))
+        print(b[1:], ": Move {} from block {} to block {}".format(x, old, b[x]))
     assert stirling2nd2(n) == cnt
     print("Done.")
 
