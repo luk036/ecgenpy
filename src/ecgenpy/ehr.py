@@ -6,6 +6,40 @@ def Ehr_gen(n: int):
 
     Yields:
         [type]: [description]
+
+    Examples:
+        >>> fruits = list("🍉🍌🍇🍏")
+        >>> n = len(fruits)
+        >>> perm = list(range(n))
+        >>> for x in Ehr_gen(n):
+        ...     mylst = list(fruits[i] for i in perm)
+        ...     print("".join(mylst))
+        ...     perm[0], perm[x] = perm[x], perm[0]
+        ...
+        🍉🍌🍇🍏
+        🍉🍌🍏🍇
+        🍉🍏🍌🍇
+        🍏🍉🍌🍇
+        🍏🍉🍇🍌
+        🍉🍏🍇🍌
+        🍉🍇🍏🍌
+        🍉🍇🍌🍏
+        🍇🍉🍌🍏
+        🍇🍉🍏🍌
+        🍇🍏🍉🍌
+        🍏🍇🍉🍌
+        🍏🍇🍌🍉
+        🍇🍏🍌🍉
+        🍇🍌🍏🍉
+        🍇🍌🍉🍏
+        🍌🍇🍉🍏
+        🍌🍇🍏🍉
+        🍌🍏🍇🍉
+        🍏🍌🍇🍉
+        🍏🍌🍉🍇
+        🍌🍏🍉🍇
+        🍌🍉🍏🍇
+        🍌🍉🍇🍏
     """
     b = list(range(n))  # b[0] is never used
     c = [0] * (n + 1)  # c[0] is never used
@@ -32,6 +66,37 @@ def Ehr(perm: list):
 
     Yields:
         list: [description]
+
+    Examples:
+        >>> fruits = list("🍉🍌🍇🍏")
+        >>> for lst in Ehr(4):
+        ...     mylst = list(fruits[i] for i in lst)
+        ...     print("".join(mylst))
+        ...
+        🍉🍌🍇🍏
+        🍉🍌🍏🍇
+        🍉🍏🍌🍇
+        🍏🍉🍌🍇
+        🍏🍉🍇🍌
+        🍉🍏🍇🍌
+        🍉🍇🍏🍌
+        🍉🍇🍌🍏
+        🍇🍉🍌🍏
+        🍇🍉🍏🍌
+        🍇🍏🍉🍌
+        🍏🍇🍉🍌
+        🍏🍇🍌🍉
+        🍇🍏🍌🍉
+        🍇🍌🍏🍉
+        🍇🍌🍉🍏
+        🍌🍇🍉🍏
+        🍌🍇🍏🍉
+        🍌🍏🍇🍉
+        🍏🍌🍇🍉
+        🍏🍌🍉🍇
+        🍌🍏🍉🍇
+        🍌🍉🍏🍇
+        🍌🍉🍇🍏
     """
     n = len(perm)
     for k in Ehr_gen(n):
@@ -40,13 +105,7 @@ def Ehr(perm: list):
     yield perm
 
 
-def main():
-    fruits = list("🍉🍌🍇🍏🍍")
-    print(" 0 1 2 3 4")
-    # print("".join(perm))
-    for perm in Ehr(fruits):
-        print("".join(perm))
-
-
 if __name__ == "__main__":
-    main()
+    import doctest
+
+    doctest.testmod()

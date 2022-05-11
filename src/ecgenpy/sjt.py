@@ -12,7 +12,42 @@ def SJT_gen(n: int):
 
     Yields:
         [type]: [description]
+
+    Examples:
+        >>> fruits = list("🍉🍌🍇🍏")
+        >>> n = len(fruits)
+        >>> perm = list(range(n))
+        >>> for x in SJT_gen(n):
+        ...     mylst = list(fruits[i] for i in perm)
+        ...     print("".join(mylst))
+        ...     perm[x], perm[x + 1] = perm[x + 1], perm[x]
+        ...
+        🍉🍌🍇🍏
+        🍉🍌🍏🍇
+        🍉🍏🍌🍇
+        🍏🍉🍌🍇
+        🍏🍉🍇🍌
+        🍉🍏🍇🍌
+        🍉🍇🍏🍌
+        🍉🍇🍌🍏
+        🍇🍉🍌🍏
+        🍇🍉🍏🍌
+        🍇🍏🍉🍌
+        🍏🍇🍉🍌
+        🍏🍇🍌🍉
+        🍇🍏🍌🍉
+        🍇🍌🍏🍉
+        🍇🍌🍉🍏
+        🍌🍇🍉🍏
+        🍌🍇🍏🍉
+        🍌🍏🍇🍉
+        🍏🍌🍇🍉
+        🍏🍌🍉🍇
+        🍌🍏🍉🍇
+        🍌🍉🍏🍇
+        🍌🍉🍇🍏
     """
+
     if n == 2:
         yield 0
         yield 0  # tricky part: return to the origin
@@ -39,6 +74,37 @@ def SJT(n: int):
 
     Yields:
         [type]: [description]
+
+    Examples:
+        >>> fruits = list("🍉🍌🍇🍏")
+        >>> for lst in SJT(4):
+        ...     mylst = list(fruits[i] for i in lst)
+        ...     print("".join(mylst))
+        ...
+        🍉🍌🍇🍏
+        🍉🍌🍏🍇
+        🍉🍏🍌🍇
+        🍏🍉🍌🍇
+        🍏🍉🍇🍌
+        🍉🍏🍇🍌
+        🍉🍇🍏🍌
+        🍉🍇🍌🍏
+        🍇🍉🍌🍏
+        🍇🍉🍏🍌
+        🍇🍏🍉🍌
+        🍏🍇🍉🍌
+        🍏🍇🍌🍉
+        🍇🍏🍌🍉
+        🍇🍌🍏🍉
+        🍇🍌🍉🍏
+        🍌🍇🍉🍏
+        🍌🍇🍏🍉
+        🍌🍏🍇🍉
+        🍏🍌🍇🍉
+        🍏🍌🍉🍇
+        🍌🍏🍉🍇
+        🍌🍉🍏🍇
+        🍌🍉🍇🍏
     """
     perm = list(range(n))
     for x in SJT_gen(n):
@@ -46,13 +112,7 @@ def SJT(n: int):
         perm[x], perm[x + 1] = perm[x + 1], perm[x]
 
 
-def main():
-    fruits = list("🍉🍌🍇🍏")
-    print(" 0 1 2 3")
-    for lst in SJT(4):
-        mylst = list(fruits[i] for i in lst)
-        print("".join(mylst))
-
-
 if __name__ == "__main__":
-    main()
+    import doctest
+
+    doctest.testmod()
