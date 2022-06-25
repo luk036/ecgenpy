@@ -6,6 +6,26 @@ def BRGC_gen(n: int):
 
     Yields:
         [type]: [description]
+
+    Examples:
+        >>> for i in BRGC_gen(4):
+        ...     print("flip {}".format(i))
+        ...
+        flip 0
+        flip 1
+        flip 0
+        flip 2
+        flip 0
+        flip 1
+        flip 0
+        flip 3
+        flip 0
+        flip 1
+        flip 0
+        flip 2
+        flip 0
+        flip 1
+        flip 0
     """
     if n == 1:
         yield 0
@@ -23,21 +43,38 @@ def BRGC(n: int):
 
     Yields:
         [type]: [description]
+
+    Examples:
+        >>> s = "◾◽"
+        >>> for lst in BRGC(4):
+        ...     mylst = list(s[i] for i in lst)
+        ...     print("".join(mylst))
+        ...
+        ◾◾◾◾
+        ◽◾◾◾
+        ◽◽◾◾
+        ◾◽◾◾
+        ◾◽◽◾
+        ◽◽◽◾
+        ◽◾◽◾
+        ◾◾◽◾
+        ◾◾◽◽
+        ◽◾◽◽
+        ◽◽◽◽
+        ◾◽◽◽
+        ◾◽◾◽
+        ◽◽◾◽
+        ◽◾◾◽
+        ◾◾◾◽
     """
     lst = list(0 for _ in range(n))
     yield lst
-    for i in BRGC_gen(len(lst)):
+    for i in BRGC_gen(n):
         lst[i] = 1 - lst[i]  # flip
         yield lst
 
 
-def main():
-    s = "◾◽"
-    print(" 0 1 2 3")
-    for lst in BRGC(4):
-        mylst = list(s[i] for i in lst)
-        print("".join(mylst))
-
-
 if __name__ == "__main__":
-    main()
+    import doctest
+
+    doctest.testmod()

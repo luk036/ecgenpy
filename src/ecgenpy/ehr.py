@@ -8,37 +8,32 @@ def Ehr_gen(n: int):
         [type]: [description]
 
     Examples:
-        >>> fruits = list("🍉🍌🍇🍏")
-        >>> n = len(fruits)
-        >>> perm = list(range(n))
-        >>> for x in Ehr_gen(n):
-        ...     mylst = list(fruits[i] for i in perm)
-        ...     print("".join(mylst))
-        ...     perm[0], perm[x] = perm[x], perm[0]
+        >>> for i in Ehr_gen(4):
+        ...     print("swap 0 and {}".format(i))
         ...
-        🍉🍌🍇🍏
-        🍌🍉🍇🍏
-        🍇🍉🍌🍏
-        🍉🍇🍌🍏
-        🍌🍇🍉🍏
-        🍇🍌🍉🍏
-        🍏🍌🍉🍇
-        🍉🍌🍏🍇
-        🍌🍉🍏🍇
-        🍏🍉🍌🍇
-        🍉🍏🍌🍇
-        🍌🍏🍉🍇
-        🍇🍏🍉🍌
-        🍏🍇🍉🍌
-        🍉🍇🍏🍌
-        🍇🍉🍏🍌
-        🍏🍉🍇🍌
-        🍉🍏🍇🍌
-        🍌🍏🍇🍉
-        🍇🍏🍌🍉
-        🍏🍇🍌🍉
-        🍌🍇🍏🍉
-        🍇🍌🍏🍉
+        swap 0 and 1
+        swap 0 and 2
+        swap 0 and 1
+        swap 0 and 2
+        swap 0 and 1
+        swap 0 and 3
+        swap 0 and 2
+        swap 0 and 1
+        swap 0 and 2
+        swap 0 and 1
+        swap 0 and 2
+        swap 0 and 3
+        swap 0 and 1
+        swap 0 and 2
+        swap 0 and 1
+        swap 0 and 2
+        swap 0 and 1
+        swap 0 and 3
+        swap 0 and 2
+        swap 0 and 1
+        swap 0 and 2
+        swap 0 and 1
+        swap 0 and 2
     """
     b = list(range(n))  # b[0] is never used
     c = [0] * (n + 1)  # c[0] is never used

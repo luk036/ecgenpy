@@ -1,4 +1,4 @@
-name: ecgencpp
+name: ecgenpy
 channels:
   - conda-forge
 dependencies:

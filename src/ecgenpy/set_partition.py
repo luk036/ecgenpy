@@ -44,6 +44,10 @@ def stirling2nd(n: int, k: int) -> int:
 
     Returns:
         int: [description]
+
+    Examples:
+        >>> stirling2nd(5, 2)
+        15
     """
     if k >= n or k <= 1:
         return 1
@@ -59,6 +63,31 @@ def set_partition(n: int, k: int):
 
     Yields:
         [type]: [description]
+
+    Examples:
+        >>> n, k = 5, 2
+        >>> b = [0] * (n - k + 1) + list(range(k))
+        >>> print(b[1:])
+        [0, 0, 0, 0, 1]
+        >>> for x, y in set_partition(n, k):
+        ...     old = b[x]
+        ...     b[x] = y
+        ...     print(b[1:], ": Move {} from block {} to {}".format(x, old, y))
+        ...
+        [0, 0, 0, 1, 1] : Move 4 from block 0 to 1
+        [0, 1, 0, 1, 1] : Move 2 from block 0 to 1
+        [0, 1, 1, 1, 1] : Move 3 from block 0 to 1
+        [0, 0, 1, 1, 1] : Move 2 from block 1 to 0
+        [0, 0, 1, 0, 1] : Move 4 from block 1 to 0
+        [0, 1, 1, 0, 1] : Move 2 from block 0 to 1
+        [0, 1, 0, 0, 1] : Move 3 from block 1 to 0
+        [0, 1, 0, 0, 0] : Move 5 from block 1 to 0
+        [0, 1, 1, 0, 0] : Move 3 from block 0 to 1
+        [0, 0, 1, 0, 0] : Move 2 from block 1 to 0
+        [0, 0, 1, 1, 0] : Move 4 from block 0 to 1
+        [0, 1, 1, 1, 0] : Move 2 from block 0 to 1
+        [0, 1, 0, 1, 0] : Move 3 from block 1 to 0
+        [0, 0, 0, 1, 0] : Move 2 from block 1 to 0
     """
     if k % 2 == 0:
         yield from GEN0_even(n, k)
@@ -264,19 +293,7 @@ def NEG1_odd(n, k):
         yield from NEG0_even(n - 1, k - 1)
 
 
-def main():
-    n, k = 5, 2
-    b = [0] * (n - k + 1) + list(range(k))
-    cnt = 1
-    print(b[1:])
-    for x, y in set_partition(n, k):
-        old = b[x]
-        b[x] = y
-        cnt += 1
-        print(b[1:], ": Move {} from block {} to block {}".format(x, old, y))
-    assert stirling2nd(n, k) == cnt
-    print("Done.")
-
-
 if __name__ == "__main__":
-    main()
+    import doctest
+
+    doctest.testmod()

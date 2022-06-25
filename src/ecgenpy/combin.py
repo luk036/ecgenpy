@@ -12,6 +12,10 @@ def comb(n: int, k: int) -> int:
 
     Returns:
         int: [description]
+
+    Examples:
+        >>> comb(6, 3)
+        20
     """
     if k >= n or k == 0:
         return 1
@@ -27,6 +31,30 @@ def EMK_gen(n: int, k: int):
 
     Yields:
         Iterator[(int, int)]: [description]
+
+    Examples:
+        >>> for x, y in EMK_gen(6, 3):
+        ...     print("swap {} and {}".format(x, y))
+        ...
+        swap 2 and 3
+        swap 1 and 2
+        swap 0 and 1
+        swap 3 and 4
+        swap 1 and 0
+        swap 2 and 1
+        swap 1 and 3
+        swap 0 and 1
+        swap 1 and 2
+        swap 4 and 5
+        swap 2 and 0
+        swap 0 and 1
+        swap 3 and 2
+        swap 1 and 0
+        swap 2 and 1
+        swap 1 and 4
+        swap 0 and 1
+        swap 1 and 2
+        swap 2 and 3
     """
     if n <= k or k == 0:
         return
@@ -65,7 +93,7 @@ def EMK_neg(n: int, k: int):
 
 
 def EMK(n: int, k: int, Zero=0, One=1):
-    """[summary]
+    """EMK
 
     Args:
         n ([type]): [description]
@@ -75,6 +103,31 @@ def EMK(n: int, k: int, Zero=0, One=1):
 
     Yields:
         [type]: [description]
+
+    Examples:
+        >>> for s in EMK(6, 3, Zero="◾", One="◽"):
+        ...     print("".join(s))
+        ...
+        ◽◽◽◾◾◾
+        ◽◽◾◽◾◾
+        ◽◾◽◽◾◾
+        ◾◽◽◽◾◾
+        ◾◽◽◾◽◾
+        ◽◾◽◾◽◾
+        ◽◽◾◾◽◾
+        ◽◾◾◽◽◾
+        ◾◽◾◽◽◾
+        ◾◾◽◽◽◾
+        ◾◾◽◽◾◽
+        ◽◾◾◽◾◽
+        ◾◽◾◽◾◽
+        ◾◽◽◾◾◽
+        ◽◾◽◾◾◽
+        ◽◽◾◾◾◽
+        ◽◾◾◾◽◽
+        ◾◽◾◾◽◽
+        ◾◾◽◾◽◽
+        ◾◾◾◽◽◽
     """
     s = [One] * k + [Zero] * (n - k)
     yield s
@@ -83,14 +136,7 @@ def EMK(n: int, k: int, Zero=0, One=1):
         yield s
 
 
-def main():
-    print(" 0 1 2 3 4 5")
-    cnt = 0
-    for s in EMK(6, 3, Zero="◾", One="◽"):
-        print("".join(s))
-        cnt += 1
-    assert comb(6, 3) == cnt
-
-
 if __name__ == "__main__":
-    main()
+    import doctest
+
+    doctest.testmod()

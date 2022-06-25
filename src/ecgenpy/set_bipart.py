@@ -43,6 +43,10 @@ def stirling2nd2(n: int) -> int:
 
     Returns:
         int: [description]
+
+    Examples:
+        >>> stirling2nd2(5)
+        15
     """
     if n <= 2:
         return 1
@@ -57,6 +61,31 @@ def set_bipart(n: int):
 
     Yields:
         [type]: [description]
+
+    Examples:
+        >>> n = 5
+        >>> b = [0] * n + [1]
+        >>> print(b[1:])
+        [0, 0, 0, 0, 1]
+        >>> for x in set_bipart(n):
+        ...     old = b[x]
+        ...     b[x] = 1 - b[x]
+        ...     print(b[1:], ": Move {} from B{} to B{}".format(x, old, b[x]))
+        ...
+        [0, 0, 0, 1, 1] : Move 4 from B0 to B1
+        [0, 1, 0, 1, 1] : Move 2 from B0 to B1
+        [0, 1, 1, 1, 1] : Move 3 from B0 to B1
+        [0, 0, 1, 1, 1] : Move 2 from B1 to B0
+        [0, 0, 1, 0, 1] : Move 4 from B1 to B0
+        [0, 1, 1, 0, 1] : Move 2 from B0 to B1
+        [0, 1, 0, 0, 1] : Move 3 from B1 to B0
+        [0, 1, 0, 0, 0] : Move 5 from B1 to B0
+        [0, 1, 1, 0, 0] : Move 3 from B0 to B1
+        [0, 0, 1, 0, 0] : Move 2 from B1 to B0
+        [0, 0, 1, 1, 0] : Move 4 from B0 to B1
+        [0, 1, 1, 1, 0] : Move 2 from B0 to B1
+        [0, 1, 0, 1, 0] : Move 3 from B1 to B0
+        [0, 0, 0, 1, 0] : Move 2 from B1 to B0
     """
     yield from GEN0(n)
 
@@ -120,19 +149,7 @@ def NEG1(n):
     yield 2
 
 
-def main():
-    n = 5
-    b = [0] * n + [1]
-    cnt = 1
-    print(b[1:])
-    for x in set_bipart(n):
-        old = b[x]
-        b[x] = 1 - b[x]
-        cnt += 1
-        print(b[1:], ": Move {} from block {} to block {}".format(x, old, b[x]))
-    assert stirling2nd2(n) == cnt
-    print("Done.")
-
-
 if __name__ == "__main__":
-    main()
+    import doctest
+
+    doctest.testmod()

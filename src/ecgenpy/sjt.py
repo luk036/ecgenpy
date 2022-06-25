@@ -14,38 +14,33 @@ def SJT_gen(n: int):
         [type]: [description]
 
     Examples:
-        >>> fruits = list("🍉🍌🍇🍏")
-        >>> n = len(fruits)
-        >>> perm = list(range(n))
-        >>> for x in SJT_gen(n):
-        ...     mylst = list(fruits[i] for i in perm)
-        ...     print("".join(mylst))
-        ...     perm[x], perm[x + 1] = perm[x + 1], perm[x]
+        >>> for i in SJT_gen(4):
+        ...     print("swap {} and {}".format(i, i + 1))
         ...
-        🍉🍌🍇🍏
-        🍉🍌🍏🍇
-        🍉🍏🍌🍇
-        🍏🍉🍌🍇
-        🍏🍉🍇🍌
-        🍉🍏🍇🍌
-        🍉🍇🍏🍌
-        🍉🍇🍌🍏
-        🍇🍉🍌🍏
-        🍇🍉🍏🍌
-        🍇🍏🍉🍌
-        🍏🍇🍉🍌
-        🍏🍇🍌🍉
-        🍇🍏🍌🍉
-        🍇🍌🍏🍉
-        🍇🍌🍉🍏
-        🍌🍇🍉🍏
-        🍌🍇🍏🍉
-        🍌🍏🍇🍉
-        🍏🍌🍇🍉
-        🍏🍌🍉🍇
-        🍌🍏🍉🍇
-        🍌🍉🍏🍇
-        🍌🍉🍇🍏
+        swap 2 and 3
+        swap 1 and 2
+        swap 0 and 1
+        swap 2 and 3
+        swap 0 and 1
+        swap 1 and 2
+        swap 2 and 3
+        swap 0 and 1
+        swap 2 and 3
+        swap 1 and 2
+        swap 0 and 1
+        swap 2 and 3
+        swap 0 and 1
+        swap 1 and 2
+        swap 2 and 3
+        swap 0 and 1
+        swap 2 and 3
+        swap 1 and 2
+        swap 0 and 1
+        swap 2 and 3
+        swap 0 and 1
+        swap 1 and 2
+        swap 2 and 3
+        swap 0 and 1
     """
 
     if n == 2:

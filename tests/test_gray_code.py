@@ -30,15 +30,29 @@ def test_BRGC_even():
     assert cnt == 2 ** 6
 
 
-def test_EMK_gen():
+def test_EMK_gen_odd():
     cnt = 1
     for _ in EMK_gen(5, 3):
         cnt += 1
     assert cnt == comb(5, 3)
 
 
-def test_EMK():
-    cnt = 0
-    for _ in EMK(5, 3):
+def test_EMK_gen_even():
+    cnt = 1
+    for _ in EMK_gen(6, 3):
         cnt += 1
-    assert cnt == comb(5, 3)
+    assert cnt == comb(6, 3)
+
+
+def test_EMK_odd():
+    cnt = 0
+    for _ in EMK(5, 2):
+        cnt += 1
+    assert cnt == comb(5, 2)
+
+
+def test_EMK_even():
+    cnt = 0
+    for _ in EMK(6, 2):
+        cnt += 1
+    assert cnt == comb(6, 2)
