@@ -9,7 +9,7 @@ def BRGC_gen(n: int):
 
     Examples:
         >>> for i in BRGC_gen(4):
-        ...     print("flip {}".format(i))
+        ...     print(f"flip {i}")
         ...
         flip 0
         flip 1

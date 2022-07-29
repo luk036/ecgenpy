@@ -34,7 +34,7 @@ def EMK_gen(n: int, k: int):
 
     Examples:
         >>> for x, y in EMK_gen(6, 3):
-        ...     print("swap {} and {}".format(x, y))
+        ...     print(f"swap {x} and {y}")
         ...
         swap 2 and 3
         swap 1 and 2

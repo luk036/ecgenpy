@@ -72,7 +72,7 @@ def set_partition(n: int, k: int):
         >>> for x, y in set_partition(n, k):
         ...     old = b[x]
         ...     b[x] = y
-        ...     print(b[1:], ": Move {} from block {} to {}".format(x, old, y))
+        ...     print(b[1:], f": Move {x} from block {old} to {y}")
         ...
         [0, 0, 0, 1, 1] : Move 4 from block 0 to 1
         [0, 1, 0, 1, 1] : Move 2 from block 0 to 1

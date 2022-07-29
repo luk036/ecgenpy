@@ -9,7 +9,7 @@ def Ehr_gen(n: int):
 
     Examples:
         >>> for i in Ehr_gen(4):
-        ...     print("swap 0 and {}".format(i))
+        ...     print(f"swap 0 and {i}")
         ...
         swap 0 and 1
         swap 0 and 2
