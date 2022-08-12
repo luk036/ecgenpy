@@ -1,8 +1,8 @@
 """ Combinations """
-from functools import cache
+from functools import lru_cache
 
 
-@cache
+@lru_cache
 def comb(n: int, k: int) -> int:
     """Number of combination
 
