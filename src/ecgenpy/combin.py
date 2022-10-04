@@ -1,5 +1,6 @@
 """ Combinations """
 from functools import lru_cache
+from typing import Generator
 
 
 @lru_cache
@@ -22,7 +23,7 @@ def comb(n: int, k: int) -> int:
     return comb(n - 1, k - 1) + comb(n - 1, k)
 
 
-def EMK_gen(n: int, k: int):
+def EMK_gen(n: int, k: int) -> Generator:
     """[summary]
 
     Args:
@@ -69,7 +70,7 @@ def EMK_gen(n: int, k: int):
         yield from EMK_gen(n - 2, k - 2)
 
 
-def EMK_neg(n: int, k: int):
+def EMK_neg(n: int, k: int) -> Generator:
     """[summary]
 
     Args:

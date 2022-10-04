@@ -1,7 +1,8 @@
 """ Steinhaus-Johnson-Trotter algorithm """
+from typing import Generator
 
 
-def SJT_gen(n: int):
+def SJT_gen(n: int) -> Generator:
     """Generate the swaps for the Steinhaus-Johnson-Trotter algorithm.
 
     Args:
@@ -58,7 +59,7 @@ def SJT_gen(n: int):
         yield next(gen)  # tricky part
 
 
-def SJT(n: int):
+def SJT(n: int) -> Generator:
     """Generate the swaps for the Steinhaus-Johnson-Trotter algorithm.
 
     Args:

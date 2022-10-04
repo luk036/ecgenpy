@@ -1,4 +1,6 @@
-def BRGC_gen(n: int):
+from typing import Generator
+
+def BRGC_gen(n: int) -> Generator:
     """Binary Reflected Gray Code
 
     Args:
@@ -35,7 +37,7 @@ def BRGC_gen(n: int):
     yield from BRGC_gen(n - 1)
 
 
-def BRGC(n: int):
+def BRGC(n: int) -> Generator:
     """Binary Reflected Gray Code
 
     Args:

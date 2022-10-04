@@ -32,6 +32,7 @@
  http://webhome.cs.uvic.ca/~ruskey/Publications/SimpleGray/SimpleGray.html
 """
 from functools import lru_cache
+from typing import Generator
 
 
 @lru_cache
@@ -54,7 +55,7 @@ def stirling2nd(n: int, k: int) -> int:
     return stirling2nd(n - 1, k - 1) + k * stirling2nd(n - 1, k)
 
 
-def set_partition(n: int, k: int):
+def set_partition(n: int, k: int) -> Generator:
     """[summary]
 
     Args:
@@ -103,7 +104,7 @@ def set_partition(n: int, k: int):
 # Note that first(S'(n,k,p)) = last(S(n,k,p))
 
 
-def GEN0_even(n, k):
+def GEN0_even(n: int, k: int) -> Generator:
     """S(n,k,0) even k
 
     Args:
@@ -126,7 +127,7 @@ def GEN0_even(n, k):
             yield from NEG1_even(n - 1, k)
 
 
-def NEG0_even(n, k):
+def NEG0_even(n: int, k: int) -> Generator:
     """S'(n,k,0) even k
 
     Args:
@@ -149,7 +150,7 @@ def NEG0_even(n, k):
         yield from NEG0_odd(n - 1, k - 1)
 
 
-def GEN1_even(n, k):
+def GEN1_even(n: int, k: int) -> Generator:
     """S(n,k,1) even k
 
     Args:
@@ -172,7 +173,7 @@ def GEN1_even(n, k):
             yield from GEN1_even(n - 1, k)
 
 
-def NEG1_even(n, k):
+def NEG1_even(n: int, k: int) -> Generator:
     """S'(n,k,1) even k
 
     Args:
@@ -195,7 +196,7 @@ def NEG1_even(n, k):
         yield from NEG1_odd(n - 1, k - 1)
 
 
-def GEN0_odd(n, k):
+def GEN0_odd(n: int, k: int) -> Generator:
     """S(n,k,0) odd k
 
     Args:
@@ -216,7 +217,7 @@ def GEN0_odd(n, k):
             yield from NEG1_odd(n - 1, k)
 
 
-# def GEN0_odd(n, k):
+# def GEN0_odd(n: int, k: int) -> Generator:
 #     ''' S(n,k,0) odd k '''
 #     if k > 1 and k < n:
 #         yield from GEN1_even(n-1, k-1)
@@ -230,7 +231,7 @@ def GEN0_odd(n, k):
 #         yield from NEG1_odd(n-1, k)
 
 
-def NEG0_odd(n, k):
+def NEG0_odd(n: int, k: int) -> Generator:
     """S'(n,k,0) odd k
 
     Args:
@@ -251,7 +252,7 @@ def NEG0_odd(n, k):
         yield from NEG1_even(n - 1, k - 1)
 
 
-def GEN1_odd(n, k):
+def GEN1_odd(n: int, k: int) -> Generator:
     """S(n,k,1) odd k
 
     Args:
@@ -272,7 +273,7 @@ def GEN1_odd(n, k):
             yield from GEN1_odd(n - 1, k)
 
 
-def NEG1_odd(n, k):
+def NEG1_odd(n: int, k: int) -> Generator:
     """S'(n,k,1) odd k
 
     Args:

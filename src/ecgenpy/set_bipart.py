@@ -32,6 +32,7 @@
  http://webhome.cs.uvic.ca/~ruskey/Publications/SimpleGray/SimpleGray.html
 """
 from functools import lru_cache
+from typing import Generator
 
 
 @lru_cache
@@ -53,7 +54,7 @@ def stirling2nd2(n: int) -> int:
     return 1 + 2 * stirling2nd2(n - 1)
 
 
-def set_bipart(n: int):
+def set_bipart(n: int) -> Generator:
     """[summary]
 
     Args:
@@ -98,7 +99,7 @@ def set_bipart(n: int):
 # Note that first(S'(n,k,p)) = last(S(n,k,p))
 
 
-def GEN0(n: int):
+def GEN0(n: int) -> Generator:
     """S(n,k,0) even k
 
     Args:
@@ -115,7 +116,7 @@ def GEN0(n: int):
     yield from NEG1(n - 1)
 
 
-def GEN1(n: int):
+def GEN1(n: int) -> Generator:
     """S(n,k,1) even k
 
     Args:
@@ -132,7 +133,7 @@ def GEN1(n: int):
     yield from GEN1(n - 1)
 
 
-def NEG1(n):
+def NEG1(n: int) -> Generator:
     """S'(n,k,1) even k
 
     Args:

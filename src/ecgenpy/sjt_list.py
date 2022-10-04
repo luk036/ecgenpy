@@ -1,4 +1,7 @@
-def SJT2(n: int):
+from typing import Generator
+
+
+def SJT2(n: int) -> Generator:
     """Generate the swaps for the Steinhaus-Johnson-Trotter algorithm.
 
     Args:
