@@ -1,5 +1,6 @@
 from typing import Generator
 
+
 def BRGC_gen(n: int) -> Generator:
     """Binary Reflected Gray Code
 

@@ -1,5 +1,6 @@
 from typing import Generator
 
+
 def Ehr_gen(n: int) -> Generator:
     """[summary]
 
@@ -51,7 +52,7 @@ def Ehr_gen(n: int) -> Generator:
             break
         c[k] += 1
         yield b[k]
-        b[1:k] = b[k-1:0:-1]
+        b[1:k] = b[k - 1 : 0 : -1]
 
 
 def Ehr(n: int) -> Generator:
