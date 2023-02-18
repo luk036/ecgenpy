@@ -6,4 +6,4 @@
 
 # ecgenpy
 
-Enumerative Combinatoric Generation Python Code
+Enumerative Combinatoric Generation in Python
