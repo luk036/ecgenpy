@@ -109,6 +109,11 @@ def SJT(n: int) -> Generator:
 
 
 if __name__ == "__main__":
-    import doctest
+    # import doctest
+    # doctest.testmod()
 
-    doctest.testmod()
+    # fruits = list("🍉🍌🍇🍏")
+    fruits = list("ABCD")
+    for lst in SJT(4):
+        mylst = list(fruits[i] for i in lst)
+        print("".join(mylst))
