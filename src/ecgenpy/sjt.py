@@ -3,16 +3,13 @@ from typing import Generator
 
 
 def SJT_gen(n: int) -> Generator:
-    """Generate the swaps for the Steinhaus-Johnson-Trotter algorithm.
-
-    Args:
-        n (int): [description]
-
-    Returns:
-        [type]: [description]
-
-    Yields:
-        [type]: [description]
+    """
+    The function `SJT_gen` generates all permutations of length `n` using the Steinhaus-Johnson-Trotter
+    algorithm.
+    
+    :param n: The parameter `n` represents the number of elements in the permutation
+    :type n: int
+    :return: The function `SJT_gen` returns a generator object.
 
     Examples:
         >>> for i in SJT_gen(4):
@@ -60,16 +57,13 @@ def SJT_gen(n: int) -> Generator:
 
 
 def SJT(n: int) -> Generator:
-    """Generate the swaps for the Steinhaus-Johnson-Trotter algorithm.
-
-    Args:
-        n (int): [description]
-
-    Returns:
-        [type]: [description]
-
-    Yields:
-        [type]: [description]
+    """
+    The function `SJT` generates all permutations of length `n` using the Steinhaus-Johnson-Trotter
+    algorithm.
+    
+    :param n: The parameter `n` represents the number of elements in the permutation
+    :type n: int
+    :return: The function `SJT` returns a generator object.
 
     Examples:
         >>> fruits = list("🍉🍌🍇🍏")

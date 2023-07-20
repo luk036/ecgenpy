@@ -2,13 +2,18 @@ from typing import Generator
 
 
 def Ehr_gen(n: int) -> Generator:
-    """[summary]
+    """
+    The function `Ehr` generates all permutations of a given length using the EHR algorithm.
+    
+    The `Ehr_gen` function is a generator that generates all permutations of length `n` using the Ehr
+    algorithm. It yields the indices of the elements to be swapped with the first element (index 0) in
+    each permutation. The algorithm works by maintaining two lists, `b` and `c`, where `b` represents
+    the current permutation and `c` keeps track of the state of the algorithm. The algorithm iterates
+    through the elements of `c` and updates the elements of `b` accordingly to generate all possible
+    permutations.
 
-    Args:
-        n (int): [description]
-
-    Yields:
-        [type]: [description]
+    :param n: The parameter `n` represents the number of elements in the permutation
+    :type n: int
 
     Examples:
         >>> for i in Ehr_gen(4):
@@ -56,14 +61,12 @@ def Ehr_gen(n: int) -> Generator:
 
 
 def Ehr(n: int) -> Generator:
-    """[summary]
-
-    Args:
-        n (int): [description]
-
-    Yields:
-        list: [description]
-
+    """
+    The function `Ehr` generates all permutations of a given length using the EHR algorithm.
+    
+    :param n: The parameter `n` represents the number of elements in the permutation
+    :type n: int
+ 
     Examples:
         >>> fruits = list("🍉🍌🍇🍏")
         >>> for lst in Ehr(4):

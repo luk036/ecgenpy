@@ -2,13 +2,13 @@ from typing import Generator
 
 
 def BRGC_gen(n: int) -> Generator:
-    """Binary Reflected Gray Code
-
-    Args:
-        n (int): [description]
-
-    Yields:
-        [type]: [description]
+    """
+    The function `BRGC_gen` generates a sequence of binary reflected gray code numbers up to a given
+    length `n`.
+    
+    :param n: The parameter `n` represents the number of bits in the binary reflected gray code sequence
+    :type n: int
+    :return: The function `BRGC_gen` returns a generator object.
 
     Examples:
         >>> for i in BRGC_gen(4):
@@ -39,13 +39,11 @@ def BRGC_gen(n: int) -> Generator:
 
 
 def BRGC(n: int) -> Generator:
-    """Binary Reflected Gray Code
-
-    Args:
-        n (int): [description]
-
-    Yields:
-        [type]: [description]
+    """
+    The function `BRGC` generates a binary reflected gray code sequence of length `n`.
+    
+    :param n: The parameter `n` represents the number of bits in the binary code
+    :type n: int
 
     Examples:
         >>> s = "◾◽"

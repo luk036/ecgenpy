@@ -31,11 +31,9 @@
  201-208. Also downloadable from
  http://webhome.cs.uvic.ca/~ruskey/Publications/SimpleGray/SimpleGray.html
 """
-from functools import lru_cache
 from typing import Generator
 
 
-@lru_cache
 def stirling2nd2(n: int) -> int:
     """Stirling number of second kind (k = 2)
 
