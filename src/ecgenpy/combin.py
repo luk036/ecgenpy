@@ -5,14 +5,17 @@ from typing import Generator
 
 @lru_cache
 def comb(n: int, k: int) -> int:
-    """Number of combination
-
-    Args:
-        n (int): [description]
-        k (int): [description]
-
-    Returns:
-        int: [description]
+    """
+    The `comb` function calculates the number of combinations of `k` elements from a set of `n` elements
+    using recursion and memoization.
+    
+    :param n: The parameter `n` represents the total number of items or elements available for selection
+    in the combination
+    :type n: int
+    :param k: The parameter `k` represents the number of items to choose from the set of `n` items. In
+    other words, it represents the size of the combination
+    :type k: int
+    :return: The function `comb` returns the number of combinations of `n` items taken `k` at a time.
 
     Examples:
         >>> comb(6, 3)
@@ -24,14 +27,15 @@ def comb(n: int, k: int) -> int:
 
 
 def EMK_gen(n: int, k: int) -> Generator:
-    """[summary]
-
-    Args:
-        n (int): [description]
-        k (int): [description]
-
-    Yields:
-        Iterator[(int, int)]: [description]
+    """
+    The `EMK_gen` function generates combinations (by swapping pairs of integers) using the EMK algorithm.
+    
+    :param n: The parameter `n` represents the total number of elements in the set, and `k` represents
+    the number of elements to be selected in each combination
+    :type n: int
+    :param k: The parameter `k` represents the number of elements to be selected in each combination
+    :type k: int
+    :return: The function `EMK_gen` returns a generator object that yields pairs of integers `(x, y)`.
 
     Examples:
         >>> for x, y in EMK_gen(6, 3):
@@ -71,14 +75,16 @@ def EMK_gen(n: int, k: int) -> Generator:
 
 
 def EMK_neg(n: int, k: int) -> Generator:
-    """[summary]
-
-    Args:
-        n (int): [description]
-        k (int): [description]
-
-    Yields:
-        [type]: [description]
+    """
+    The `EMK_neg` function generates combinations (by swapping pairs of integers in reverse order)
+    using the EMK algorithm.
+    
+    :param n: The parameter `n` represents the total number of elements in the set, and `k` represents
+    the number of elements to be selected in each combination
+    :type n: int
+    :param k: The parameter `k` represents the number of elements to be selected in each combination
+    :type k: int
+    :return: The function `EMK_gen` returns a generator object that yields pairs of integers `(x, y)`.
     """
     if n <= k or k == 0:
         return
@@ -94,7 +100,7 @@ def EMK_neg(n: int, k: int) -> Generator:
 
 
 def EMK(n: int, k: int, Zero=0, One=1):
-    """EMK
+    """Generates combinations (by swapping pairs of integers) using the EMK algorithm
 
     Args:
         n ([type]): [description]
