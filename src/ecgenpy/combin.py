@@ -8,7 +8,7 @@ def comb(n: int, k: int) -> int:
     """
     The `comb` function calculates the number of combinations of `k` elements from a set of `n` elements
     using recursion and memoization.
-    
+
     :param n: The parameter `n` represents the total number of items or elements available for selection
     in the combination
     :type n: int
@@ -29,7 +29,7 @@ def comb(n: int, k: int) -> int:
 def EMK_gen(n: int, k: int) -> Generator:
     """
     The `EMK_gen` function generates combinations (by swapping pairs of integers) using the EMK algorithm.
-    
+
     :param n: The parameter `n` represents the total number of elements in the set, and `k` represents
     the number of elements to be selected in each combination
     :type n: int
@@ -78,7 +78,7 @@ def EMK_neg(n: int, k: int) -> Generator:
     """
     The `EMK_neg` function generates combinations (by swapping pairs of integers in reverse order)
     using the EMK algorithm.
-    
+
     :param n: The parameter `n` represents the total number of elements in the set, and `k` represents
     the number of elements to be selected in each combination
     :type n: int
@@ -102,7 +102,7 @@ def EMK_neg(n: int, k: int) -> Generator:
 def EMK(n: int, k: int, Zero=0, One=1):
     """
     The EMK function generates combinations by swapping pairs of integers using the EMK algorithm.
-    
+
     :param n: The parameter `n` represents the total number of elements in the combination. It is an
     integer value
     :type n: int

@@ -40,7 +40,7 @@ def stirling2nd(n: int, k: int) -> int:
     """
     The `stirling2nd` function calculates the Stirling number of the second kind for given values of `n`
     and `k`.
-    
+
     :param n: The parameter `n` represents the total number of objects or elements in a set
     :type n: int
     :param k: The parameter `k` represents the number of non-empty subsets that need to be formed from a
@@ -62,7 +62,7 @@ def set_partition(n: int, k: int) -> Generator:
     """
     The `set_partition` function generates all possible set partitions of a set of size `n` into `k`
     blocks.
-    
+
     :param n: The parameter `n` represents the total number of elements in the set
     :type n: int
     :param k: The parameter `k` represents the number of blocks in the set partition
@@ -112,7 +112,7 @@ def GEN0_even(n: int, k: int) -> Generator:
 
     The function `GEN0_even` generates a sequence of tuples that satisfy certain conditions based on the
     values of `n` and `k`.
-    
+
     :param n: The parameter `n` represents the total number of elements in a sequence. It is an integer
     value
     :type n: int
@@ -138,7 +138,7 @@ def NEG0_even(n: int, k: int) -> Generator:
 
     The function `NEG0_even` generates a sequence of tuples that satisfy certain conditions based on the
     input parameters `n` and `k`.
-    
+
     :param n: The parameter `n` represents the total number of elements in a sequence or set. It is an
     integer value
     :type n: int

@@ -6,7 +6,7 @@ def SJT_gen(n: int) -> Generator:
     """
     The function `SJT_gen` generates all permutations of length `n` using the Steinhaus-Johnson-Trotter
     algorithm.
-    
+
     :param n: The parameter `n` represents the number of elements in the permutation
     :type n: int
     :return: The function `SJT_gen` returns a generator object.
@@ -60,7 +60,7 @@ def SJT(n: int) -> Generator:
     """
     The function `SJT` generates all permutations of length `n` using the Steinhaus-Johnson-Trotter
     algorithm.
-    
+
     :param n: The parameter `n` represents the number of elements in the permutation
     :type n: int
     :return: The function `SJT` returns a generator object.
