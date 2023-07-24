@@ -20,6 +20,8 @@ def comb(n: int, k: int) -> int:
     Examples:
         >>> comb(6, 3)
         20
+        >>> comb(6, 4) == comb(6, 2)
+        True
     """
     if k >= n or k == 0:
         return 1
@@ -27,7 +29,8 @@ def comb(n: int, k: int) -> int:
 
 
 def EMK_gen(n: int, k: int) -> Generator:
-    """
+    """Generate all combinations by homogeneous revoling-door
+
     The `EMK_gen` function generates combinations (by swapping pairs of integers) using the EMK algorithm.
 
     :param n: The parameter `n` represents the total number of elements in the set, and `k` represents
