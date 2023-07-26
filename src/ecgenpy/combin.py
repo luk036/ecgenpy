@@ -22,6 +22,11 @@ def comb(n: int, k: int) -> int:
         20
         >>> comb(6, 4) == comb(6, 2)
         True
+        >>> comb(6, 5) == comb(6, 1)
+        True
+        >>> comb(6, 6) == comb(6, 0)
+        True
+
     """
     if k >= n or k == 0:
         return 1
