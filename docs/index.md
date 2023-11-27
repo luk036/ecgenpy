@@ -1,6 +1,6 @@
 # ecgenpy
 
-Add a short description here!
+Enumerative Combinatoric Generation
 
 
 ## Note

@@ -11,15 +11,12 @@
 -->
 
 [![Project generated with PyScaffold](https://img.shields.io/badge/-PyScaffold-005CA0?logo=pyscaffold)](https://pyscaffold.org/)
-[![Multi-Platforms](https://github.com/luk036/ecgenpy/actions/workflows/multi-platforms.yml/badge.svg)](https://github.com/luk036/ecgenpy/actions/workflows/multi-platforms.yml)
-[![Python Package using Conda](https://github.com/luk036/ecgenpy/actions/workflows/python-package-conda.yml/badge.svg)](https://github.com/luk036/ecgenpy/actions/workflows/python-package-conda.yml)
-![Python application](https://github.com/luk036/pylds/workflows/Python%20application/badge.svg)
-[![codecov](https://codecov.io/gh/luk036/ecgenpy/branch/main/graph/badge.svg?token=5Y28NrEVID)](https://codecov.io/gh/luk036/ecgenpy)
 [![Documentation Status](https://readthedocs.org/projects/ecgenpy/badge/?version=latest)](https://ecgenpy.readthedocs.io/en/latest/?badge=latest)
+[![Coveralls](https://img.shields.io/coveralls/github/luk036/ecgenpy/main.svg)](https://coveralls.io/r/luk036/ecgenpy)
 
 # 🔢 ecgenpy
 
-> Enumerative Combinatoric Generation in Python
+> Enumerative Combinatoric Generation
 
 A longer description of your project goes here...
 
